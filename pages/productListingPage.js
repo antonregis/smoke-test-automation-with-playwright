@@ -25,11 +25,11 @@ exports.ProductListingPage = class ProductListingPage {
 
   async clickRandomProduct() {
     const count = await this.page.locator('a.stretched-link').count();
-    const randomProduct = Math.floor(Math.random() * 15) + 1;
+    const randomProduct = Math.floor(Math.random() * count) + 1;
     // console.log(count);
     // console.log(randomProduct);
-    // await this.product.nth(randomProduct - 1).scrollIntoViewIfNeeded();
-    await this.product.nth(randomProduct - 1).evaluate(domElement => domElement.click());
+    await this.product.nth(randomProduct - 1).scrollIntoViewIfNeeded();
+    await this.product.nth(randomProduct).evaluate(domElement => domElement.click());
   }
 
 
